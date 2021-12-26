@@ -22,7 +22,7 @@ export class AutocompleteComponent implements OnDestroy {
   private choosenOption: PlaceSuggestion;
 
   private userInputTimeout: number;
-  private requestSub: Subscription;
+  private requestSub: Subscription; 
 
   constructor(private http: HttpClient) {
     this.valueChangesSub = this.inputFieldFormControl.valueChanges.subscribe((value) => {

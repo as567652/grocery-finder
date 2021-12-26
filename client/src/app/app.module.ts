@@ -13,6 +13,7 @@ import { LegendService, MarkerService, MapsTooltipService, DataLabelService, Bub
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -64,6 +65,7 @@ import { ShopDashboardComponent } from './shop-dashboard/shop-dashboard.componen
     CommonModule,
     MatAutocompleteModule,
     MatTooltipModule,
+    MatSliderModule,
   ],
   providers: [
     FeedbackService,

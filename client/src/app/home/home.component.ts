@@ -25,13 +25,13 @@ export class HomeComponent implements OnInit {
     private http: HttpClient,
     private fetchlocationService: FetchLocationService
   ) {}
-
+ 
   autocompleteChanged(value: PlaceSuggestion) {
     // console.log(this.mapObject);
 
     this.m.changevalue(value);
   }
-
+ 
   ngOnInit() {
     this.m = new MyMapComponent(this.fetchlocationService);
   }

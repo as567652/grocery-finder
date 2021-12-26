@@ -1,3 +1,5 @@
+$primary_1: #FF7300;
+
 mat-form-field {
     width: 100%;
 }
@@ -9,4 +11,18 @@ button {
         height: 25px;
         background-color: inherit;
     }
+}
+
+mat-slider {
+    width: 100%;
+}
+
+.mat-slider {
+    vertical-align: bottom;
+    padding-bottom: 0;
+}
+
+.mat-slider-horizontal {
+    height: 48px;
+    //margin-top: 10px;
 }

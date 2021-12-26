@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import * as L from "leaflet";
 import { icon } from "leaflet";
-
+import 'leaflet-easybutton';
 
 import { FetchLocationService } from "../services/fetch-location.service";
 import { current_location, change_value, map_dup, change_map, markers, empty_markers, add_marker, remove_last_marker, remove_geo, add_geo, geoLayers } from "../shared/current_location";
 
 import { environment } from "src/environments/environment.prod";
+import { dataBound } from "@syncfusion/ej2-angular-grids";
 
-@Component({
+@Component({ 
   selector: "app-my-map",
   templateUrl: "./my-map.component.html",
   styleUrls: ["./my-map.component.scss"],
@@ -19,6 +20,8 @@ export class MyMapComponent implements OnInit, AfterViewInit {
   private mapContainer: ElementRef<HTMLElement>;
 
   constructor(private fetchlocationService: FetchLocationService) {}
+
+  initial_pos : any;
 
   ngOnInit() {
     var lefletMap = L.map("map", { center: [32.203505, 30.753307], zoom: 1 });
@@ -48,11 +51,41 @@ export class MyMapComponent implements OnInit, AfterViewInit {
       maxZoom: 20,
       id: "osm-bright",
     } as any).addTo(lefletMap);
-    change_map(lefletMap);
-  }
+
+    var loc_btn = L.easyButton('<span class="star">&target;</span>', function(btn, map){
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const value : any = {
+          latitude : position.coords.latitude,
+          longitude : position.coords.longitude,
+          fulladdress : "Current Location"
+        }
+        if (geoLayers[0]){
+          lefletMap.removeLayer(markers[1]);
+          remove_last_marker();
+          lefletMap.removeLayer(geoLayers[0]);
+          remove_geo();
+        }
+        else{
+          if (markers[0]){
+            lefletMap.removeLayer(markers[0]);
+          }
+          remove_last_marker();
+        }
+        change_map(lefletMap);
+        change_value(value);
+        lefletMap = lefletMap.flyTo([value.latitude, value.longitude], 15, { animate: true, duration: 8 });
+        change_map(lefletMap);
+        add_marker(value);
+      })
+    }).addTo( lefletMap );
+      //console.log(lefletMap.locate());
+
+      change_map(lefletMap);
+    }
 
   ngAfterViewInit() {
     this.fetchlocationService.getcurrentLocation().then((data) => {
+      this.initial_pos = data;
       setTimeout(() => {
         this.changeinitialvalue(data);
       }, 2000);

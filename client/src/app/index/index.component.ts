@@ -89,6 +89,7 @@ export class IndexComponent implements OnInit {
     this.loginForm = this.fb.group({
       mobnum: ['', [Validators.required, Validators.pattern] ],
       password: ['', [Validators.required] ],
+      seller : false
     });
     this.loginForm.valueChanges
     .subscribe(data => this.onloginValueChanged(data));

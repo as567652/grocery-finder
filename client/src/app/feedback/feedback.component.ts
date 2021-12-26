@@ -58,7 +58,7 @@ export class FeedbackComponent implements OnInit {
       email: ['', [Validators.required, Validators.email] ],
       message: ['', [Validators.required, Validators.minLength(15)] ]
     });
-    this.feedbackForm.valueChanges
+    this.feedbackForm.valueChanges 
     .subscribe(data => this.onValueChanged(data));
 
     this.onValueChanged();
