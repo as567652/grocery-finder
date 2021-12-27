@@ -1,0 +1,36 @@
+.content {
+    position:absolute;
+    top:150px;
+    right:10%;
+    left:10%;
+    background-color: white;
+    border-radius: 40px;
+}
+
+img {
+    border-radius: 50%;
+    background-color: white;
+    width: 150px;
+    margin: 20px;
+}
+
+table {
+    width: 90%;
+    margin: 20px;
+    tr {
+        .l {
+            text-align: left;
+            padding: 10px;
+        }
+        .r {
+            text-align: right;
+            padding: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .content {
+        top:40px;
+    }
+}

@@ -10,16 +10,20 @@ import { IndexComponent } from "./index/index.component";
 import { AuthGuard } from "./services/auth.guard";
 import { SearchresultComponent } from "./searchresult/searchresult.component";
 import { ShopDashboardComponent } from "./shop-dashboard/shop-dashboard.component";
+import { ListingsComponent } from "./listings/listings.component";
+import { ShopProfileComponent } from "./shop-profile/shop-profile.component";
 
 const routes: Routes = [
   { path: "index", component: IndexComponent },
   { path: "", redirectTo: "/index", pathMatch: "full" },
   { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
   { path: "feedback", component: FeedbackComponent },
-  { path: "profile", component: ProfileComponent },
+  { path: "profile", component: ProfileComponent }, 
   { path: "about", component: AboutComponent },
   { path: "contactus", component: ContactusComponent },
-  { path: "shopdashboard", component: ShopDashboardComponent },
+  { path: "shopdashboard", component: ListingsComponent },
+  { path: "listings", component: ListingsComponent },
+  { path: "shopprofile", component: ShopProfileComponent }
 ];
 
 @NgModule({

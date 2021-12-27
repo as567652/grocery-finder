@@ -29,7 +29,7 @@ li {
 .item_button {
     align-items: center;
 }
-
+ 
 button{
     width: 130px;
     height: 40px;
@@ -46,4 +46,29 @@ button:hover{
     background : white;
     color: #ff7300;
     box-shadow:  2px 12px 12px #c7c4c4;
+}
+
+table {
+    width: 100%;
+}
+
+.rig {
+    text-align: right;
+}
+
+.price {
+    text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .media {
+        align-items : stretch;
+    }
+    button {
+        width: 100%;
+    }
+    .title{
+        text-align: center;
+        margin-top: 5px !important;
+    }
 }

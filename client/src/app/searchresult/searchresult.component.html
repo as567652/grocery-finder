@@ -4,21 +4,31 @@
       <!-- List group-->
       <ul class="list-group shadow">
         <div *ngFor="let item of items">
-          <!-- list group item-->
-          <li class="list-group-item mb-2"> 
+          <!-- list group item--> 
+          <li class="list-group-item mb-2">
             <!-- Custom content-->
             <div class="media align-items-lg-center flex-column flex-lg-row p-3">
               <div class="media-body order-2 order-lg-1">
-                <h5 class="mt-0 font-weight-bold mb-2">{{item.name}}</h5>
-                <p class="font-italic text-muted mb-0 small"> Sold By :- {{item.shopname}}</p>
-                <p class="font-italic text-muted mb-0 small"> In Stock :- {{item.stock}}</p>
+                <div class="small_details">
+                  <h5 class="mt-0 font-weight-bold mb-2 title">{{item.name}}</h5>
+                  <table class="font-italic text-muted mb-0 small">
+                    <tr>
+                      <td>Sold By</td>
+                      <td class="rig">{{item.shopname}}</td>
+                    </tr>
+                    <tr>
+                      <td>In Stock</td>
+                      <td class="rig">{{item.stock}}</td>
+                    </tr>
+                  </table>
+                </div>
                 <div class="align-items-center justify-content-between mt-1">
-                  <h6 class="font-weight-bold my-2">Only {{item.price}} Rs.</h6>
+                  <h5 class="font-weight-bold price my-2">Only {{item.price}} Rs.</h5>
                 </div>
                 <p class="item_button">
                   <button type="submit" (click)="showpath(item.id)" mat-button class="btn" style="width: 100%;">Get Location</button>
                 </p>
-              </div><img src="#" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+              </div><img src="{{baseURL + item.image}}" alt="Image By {{item.shopname}} For {{item.name}}" width="200" class="ml-lg-5 order-1 order-lg-2">
             </div>
             <!-- End -->
           </li>

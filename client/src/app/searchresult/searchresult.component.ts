@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ItemDetails } from '../shared/itemDetails';
 
 import { ItemsearchService } from '../services/itemsearch.service';
@@ -11,13 +11,13 @@ import { MyMapComponent } from '../my-map/my-map.component';
 @Component({
   selector: 'app-searchresult',
   templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.scss'],
+  styleUrls: ['./searchresult.component.scss'], 
   providers: [MyMapComponent]
 })
 
 export class SearchresultComponent implements OnInit {
   items : ItemDetails[]
-  constructor(private map_component : MyMapComponent, private route: ActivatedRoute, private ItemSearchService : ItemsearchService, private fetchLocationService : FetchLocationService) { }
+  constructor(private map_component : MyMapComponent, private route: ActivatedRoute, private ItemSearchService : ItemsearchService, private fetchLocationService : FetchLocationService, @Inject('baseURL') public baseURL) { }
 
   ngOnInit(): void {
     this.ItemSearchService.getItems()

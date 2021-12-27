@@ -98,8 +98,8 @@ $primary_4: #939393;
 }
 
 .form_container {
-    width: 80%;
-    background-color: $primary_3;
+    //width: 80%;
+    background-color: white;
     border-radius: 40px;
     form {
         padding: 20px;
@@ -177,6 +177,17 @@ $primary_4: #939393;
 @media only screen and (max-width: 767px) {
     .RIGHT .add_margin {
         margin-top: 0px;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .special_LEFT {
+        height: 20vh;
+    }
+    .special_case_0 {
+        margin-top: auto;
+    }
+    .special_case_1 {
+        height: 85vh;
     }
 }
 

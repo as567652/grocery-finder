@@ -33,6 +33,9 @@ import { MyMapComponent } from './my-map/my-map.component';
 import { ItemsearchComponent } from './itemsearch/itemsearch.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { ShopDashboardComponent } from './shop-dashboard/shop-dashboard.component';
+import { ShopheaderComponent } from './shopheader/shopheader.component';
+import { ListingsComponent } from './listings/listings.component';
+import { ShopProfileComponent } from './shop-profile/shop-profile.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { ShopDashboardComponent } from './shop-dashboard/shop-dashboard.componen
     MyMapComponent,
     ItemsearchComponent,
     SearchresultComponent,
-    ShopDashboardComponent
+    ShopDashboardComponent,
+    ShopheaderComponent,
+    ListingsComponent,
+    ShopProfileComponent
   ],
   imports: [
     BrowserModule,
